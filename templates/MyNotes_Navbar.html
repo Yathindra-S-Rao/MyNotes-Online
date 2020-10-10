@@ -1,0 +1,81 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-xl navbar-white bg-white mb-2" id="navbar_shadow">
+
+    <a class="navbar-brand" href="/">
+        <img src="{% static 'Icons/Logo.png' %}" alt="MyNotes" id="brandLogo" />
+    </a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="fas fa-th-list text-info"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ml-lg-auto">
+
+            <li class="nav-item" id="nav-item-margin-edit">
+                <a href="#AddNote_Modal" class="nav-link" data-toggle="modal" data-target="#AddNote_Modal" id="navItem">
+                    <span><i class="fas fa-plus-circle"></i></span>
+                    <span>Add Note</span>
+                </a>
+            </li>
+
+            <!-- <li class="nav-item" id="nav-item-margin-edit">
+                <a href="#" class="nav-link" id="navItem">
+                    <span><i class="fas fa-check-circle"></i></span>
+                    <span>Select Note</span></a>
+            </li> -->
+
+            <li class="nav-item" id="nav-item-margin-edit">
+                <a href="/Archived/" class="nav-link" id="navItem">
+                    <span><i class="fas fa-archive"></i></span>
+                    <span>Archived</span>
+                </a>
+            </li>
+
+            <!-- <li class="nav-item" id="nav-item-margin-edit">
+                <a href="#" class="nav-link" id="navItem">
+                    <span><i class="fas fa-th"></i></span>
+                    <span>Grid</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-item-margin-edit">
+                <a href="#" class="nav-link" id="navItem">
+                    <span><i class="fas fa-bars"></i></span>
+                    <span>List</span>
+                </a>
+            </li> -->
+
+            <li id="nav-item-margin-edit">
+                <form class="form-inline my-2 my-lg-0" action="/Search/" method="GET"> {% csrf_token %}
+                    <input type="search" name="search" class="form-control" id="textbox" placeholder="Search">
+                    <section id="btn-search">
+                        <span class="fas fa-search text-info"></span>
+                    </section>
+                </form>
+            </li>
+
+            <div class="dropdown">
+                <li class="nav-item" id="nav-item-margin-edit">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navItem">
+                        <i class="fas fa-user"></i>
+                        {% if user.is_authenticated %}
+                        <strong>{{ user.username }}</strong>
+                        {% else %}
+                        <strong>{{ request.user }}</strong>
+                        {% endif %}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item" id="userDropDown">
+                        <span><i class="fas fa-pen"></i></span>
+                        <span>Profile</span></a>
+                        <a href="/accounts/Logout/" class="dropdown-item" id="userDropDown">
+                        <span><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Logout</span></a>
+                    </div>        
+                </li>
+            </div>
+
+        </ul>
+    </div>
+
+</nav>

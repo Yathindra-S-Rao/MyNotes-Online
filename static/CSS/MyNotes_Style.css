@@ -1,0 +1,127 @@
+::selection{
+  color: white;
+  background-color: #17a2b8;
+}
+
+body{
+  height: 100%;
+}
+
+#navbar_shadow{
+  box-shadow: 0 1px 20px 0 lightgray ;
+}
+
+#cardStyle{
+  box-shadow: 0 1px 20px 0 lightgray;
+}
+
+#cardStyle:hover{
+  border-left-width: 5px;
+  border-left-color: #17a2b8;
+  transition: border-left-width 400ms 0ms;
+}
+
+#navItem{
+  color:#17a2b8;
+  font-weight: 500;
+  padding: 6px 12px 6px 12px;
+}
+
+#nav-item-margin-edit{
+  margin-left: 5px;
+  margin-left: 5px;
+}
+
+#navItem:hover{
+  background-color:#17a2b8;
+  color: white;
+  font-weight: 500;
+  border-radius: .25rem;
+  border: none;
+}
+
+#btnShadow{
+    box-shadow: 0 1px 20px 0 lightgray ;
+}
+
+#textbox{
+  outline-width: 0ch;
+  outline-color:#17a2b8;
+  box-shadow: 0 1px 20px 0 lightgray ;
+}
+
+textarea{
+  white-space: pre-line;
+}
+
+#noteFavorite:hover{
+  cursor: pointer;
+}
+
+#brandLogo{
+  width: 190px;
+  height: 50px;
+}
+
+#NavBar_UserInfo{
+ padding: 4px;
+}
+
+#btn-search{
+  position: absolute;
+  margin: 12px;
+}
+
+input[type=search]{
+  padding: 5px 12px 5px 30px;
+}
+
+#each-card-body{
+  padding: 9px 20px 9px 20px;
+}
+
+#each-card-body:hover{
+  padding-left:15px; 
+  transition: padding-left 400ms 0ms;
+}
+
+.horizontle-line{
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+#btnArchiveOrRestore{
+  font-size: 80%;
+  font-weight: 400;
+  padding: 0px;
+}
+
+#btnArchiveOrRestore:hover{
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  background-color: none;
+  text-decoration: none;
+}
+
+#userDropDown{
+  color:#17a2b8;
+  font-weight: 500;
+}
+
+#userDropDown:hover{
+  background-color:#17a2b8;
+  color: white;
+  font-weight: 500;
+}
+
+.footer {
+  position: fixed;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.main{
+  min-height: 80%;
+}

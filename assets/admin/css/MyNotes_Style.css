@@ -1,0 +1,8 @@
+#cardStyle{
+  box-shadow: 0 1px 20px 0 black ;
+}
+
+#textbox:focus{
+  outline: none;
+  box-shadow: 0 1px 20px 0 lightgray ;
+}

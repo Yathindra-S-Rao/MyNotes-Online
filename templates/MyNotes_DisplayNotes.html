@@ -1,0 +1,62 @@
+{% extends 'MyNotes_Home.html' %}
+{% load static %}
+
+{% block Notes_block %}
+
+{% for notes_data in all_notes_key %}
+    <div class="container py-1" id="each_note">
+        <div class="card" id="cardStyle">
+            <div class="card-body" id="each-card-body">
+                {% if notes_data.notes_title != None %}
+                <Strong class="card-title text-info">{{ notes_data.notes_title }}</Strong>
+                {%  endif %}
+                {% if notes_data.notes_favorite == True %}
+                <i class="fas fa-star text-warning" aria-hidden="true"></i>
+                {% endif %}
+                <br>
+                <small id="description_of_note">{{ notes_data.notes_description | linebreaks }}</small>
+                <hr class="horizontle-line" />
+                
+                <div class="row">
+
+                    <div class="col-md-8 col-sm-6 col-xs-6">
+                        <small class="text-muted font-italic">
+                        <i class="far fa-clock text-muted"></i>
+                        Created on :
+                        {{ notes_data.notes_created_date }}
+                        </small>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3 col-xs-3">
+                        <form action="/Edit/{{notes_data.id}}/" method="POST" class="my-0"> {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-link text-info" id="btnArchiveOrRestore">
+                        <i class="fas fa-pen"></i>
+                        Edit
+                        </button>
+                        </form>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3 col-xs-3">
+
+                        <form method="POST" action="/ArchiveNote/{{ notes_data.id }}/" class="my-0"> {% csrf_token %}
+                        <button class="btn btn-sm btn-link text-danger" id="btnArchiveOrRestore" type="submit">
+                        <i class="fas fa-archive"></i>
+                        Archive
+                        </button>
+                        </form>
+                        
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="alert alert-info my-2 text-info text-center">
+        <strong>Greetings! </strong>You have zero note saved here. click 
+        <a href="#AddNote_Modal" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#AddNote_Modal" >
+            <span><i class="fas fa-plus-circle"></i></span>
+            <span>Add Note</span>
+        </a> to create one.
+    </div>
+    {% endfor %}
+{% endblock Notes_block %}

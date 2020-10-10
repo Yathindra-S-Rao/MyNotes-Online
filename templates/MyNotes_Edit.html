@@ -1,0 +1,37 @@
+{% extends 'MyNotes_Home.html' %}
+{% load static %}
+
+{% block Notes_block %}
+<div class="container wm-75 text-center p-2">
+    <form action="/SaveChanges/{{editable_note_key.id}}/" method="POST" name="SaveNote-Form">{% csrf_token %}
+        <div class="form-group float-left">
+            <h4 class="text-info">Edit Note
+                <i name="note-favorite" class="{% if editable_note_key.notes_favorite %}fas fa-star text-warning{% else %}far fa-star text-warning{% endif %}" id="noteFavorite" onclick="set_note_favorite()" value="{{ editable_note_key.notes_favorite }}" aria-label="Favorite"></i>
+                <!-- <input type="hidden" name="note-favorite" id="hiddenNoteFavorite"> -->
+            </h4>
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="note-title" id="textbox" class="form-control text-info" placeholder="Note title" value="{{ editable_note_key.notes_title }}">
+        </div>
+
+        <div class="form-group">
+            <textarea name="note-description" id="textbox" class="form-control" rows="5" placeholder="Description">{{ editable_note_key.notes_description }}</textarea>
+        </div>
+
+        <div class="form-group float-right">
+            <button type="submit" class="btn btn-info" value="Save" id="btnShadow">
+            <i class="fas fa-save"></i>
+            Save</button>                    
+        </div>
+    </form>
+    <form action="/ArchiveNote/{{ editable_note_key.id }}/" class="float-right mx-1" method="post">{% csrf_token %}
+        <a href="/" type="button" class="btn btn-outline-info" id="btnShadow">
+        <i class="fas fa-ban"></i>
+        Discard</a>
+        <button type="submit" class="btn btn-outline-info" id="btnShadow">
+        <i class="fas fa-archive"></i>
+        Archive</button>
+    </form>
+</div>
+{% endblock Notes_block %}

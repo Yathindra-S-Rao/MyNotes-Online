@@ -1,0 +1,27 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-xl navbar-white bg-white mt-2" id="navbar_shadow">
+    <div class="container float-right">
+        <p class="text-info mb-0">© 2020, MyNotes, Some rights reserved</p>
+        <button class="btn btn-link text-info" data-toggle="modal" data-target="#About-modal">About</button>
+    </div>
+</nav>
+
+<div class="modal" id="About-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <img src="{% static 'Icons/Logo.png' %}" alt="MyNotes" id="brandLogo" /><br><br>
+                <strong class="text-info">About MyNotes</strong>
+                <p class="text-muted">This application is web-based solution to create and store any information as notes. The application allows user to create their own profile by registering with email id. user can create, edit, archive or delete their notes. Since the app is web-based, user can check out their notes anywhere and anytime with any sort of devices such as Laptop, Desktops, Smartphones and Notebooks.</p>
+
+                <strong class="text-info">Developed By:</strong>
+                <p class="text-muted py-0 my-0">Yathindra S.</p>
+                <p class="text-muted py-0 my-0">Contact: 
+                <span><a href="mailto:syathindrarao@gmail.com" class="text-info">syathindrarao@gmail.com</span></p> 
+            </div>
+        </div>
+    </div>
+</div>
+
